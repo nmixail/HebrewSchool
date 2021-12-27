@@ -1,7 +1,11 @@
+using HebrewSchool.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(); // Добавление методов MVC
+
+builder.Services.AddDbContext<ApplicationContext>(); // Добавление базы данных в качестве сервиса в приложение
 
 var app = builder.Build();
 

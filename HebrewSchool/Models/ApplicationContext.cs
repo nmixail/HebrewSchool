@@ -6,12 +6,12 @@ namespace HebrewSchool.Models
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
-        public DbSet<Name> Names { get; set; }
-        public DbSet<Surname> Surnames { get; set; }
-        public DbSet<Student> Students { get; set; }
-        public DbSet<Class> Classes { get; set; }
-        public DbSet<Year> Years { get; set; }
+        public DbSet<User> Users { get; set; } = null!;
+        public DbSet<Name> Names { get; set; } = null!;
+        public DbSet<Surname> Surnames { get; set; } = null!;
+        public DbSet<Student> Students { get; set; } = null!;
+        public DbSet<Class> Classes { get; set; } = null!;
+        public DbSet<Year> Years { get; set; } = null!;
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
              : base(options)
@@ -21,6 +21,7 @@ namespace HebrewSchool.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            // строка подключения быза данных
             optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=HebrewSchooldb;Username=postgres;Password=ytkmpz09121992");
         }
     }
